@@ -22,7 +22,7 @@ export const HermesNavigation: React.FC<TypesHermesNavigation> = ({
   return (
     <div className={`flex flex-col w-full`}>
       <div
-        className={`flex flex-row w-full h-12 border-2 border-neutral justify-between`}
+        className={`flex flex-row w-full h-12 border-2 border-neutral justify-between `}
       >
         <div
           className={`grid grid-cols-5 w-144 place-items-center divide-x-2 divide-neutral border-r-2 border-neutral `}
@@ -36,28 +36,28 @@ export const HermesNavigation: React.FC<TypesHermesNavigation> = ({
             className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
           >
             <p className={"font-sans font-medium text-md"}>
-              {`${t(`glossary:discover`, `Discover`)}`}
+              {`${t(`glossary:`, `Refresh`)}`}
             </p>
           </div>
           <div
             className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
           >
             <p className={"font-sans font-medium text-md"}>
-              {`${t(`glossary:artist_pl`, `Artists`)}`}
+              {`${t(`glossary:`, `Read`)}`}
             </p>
           </div>
           <div
             className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
           >
             <p className={"font-sans font-medium text-md"}>
-              {`${t(`glossary:live`, `Live`)}`}
+              {`${t(`glossary:`, `Sent`)}`}
             </p>
           </div>
           <div
             className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
           >
             <p className={"font-sans font-medium text-md"}>
-              {`${t(`glossary:contact`, `Contact`)}`}
+              {`${t(`glossary:`, `Drafts`)}`}
             </p>
           </div>
         </div>

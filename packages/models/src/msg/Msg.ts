@@ -67,7 +67,7 @@ export class Msg extends BaseEntity {
   @Column({ nullable: true })
   threadId?: number;
 
-  @Field(() => Thread)
+  @Field(() => Thread, { nullable: true })
   @ManyToOne(() => Thread, (thread) => thread.msgs)
-  thread!: Thread;
+  thread!: Thread | null;
 }

@@ -8,4 +8,5 @@
  */
 export type TypesEnvHermes = {
   ENC_IV: string;
+  GRAPH_URI: string;
 };

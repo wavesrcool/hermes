@@ -1,0 +1,33 @@
+query HermesGraph0001($figure: HermesGraphFigures0001!) {
+  HermesGraph0001(figure: $figure) {
+    pass
+    message
+    timestamp
+    hash
+    data {
+      notes
+      list {
+        id
+        created
+        updated
+        key
+        subject
+        msgs {
+          id
+          created
+          updated
+          key
+          wave
+          records {
+            recipient
+            sender
+            subject
+            date
+            from
+            text
+          }
+        }
+      }
+    }
+  }
+}

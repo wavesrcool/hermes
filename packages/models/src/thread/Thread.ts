@@ -58,7 +58,7 @@ export class Thread extends BaseEntity {
   // model relations
   //
 
-  @Field(() => [Msg])
+  @Field(() => [Msg], { nullable: true })
   @OneToMany(() => Msg, (msg) => msg.thread)
-  msgs!: Msg[];
+  msgs!: Msg[] | null;
 }

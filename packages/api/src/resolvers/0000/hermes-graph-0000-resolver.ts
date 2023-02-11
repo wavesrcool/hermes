@@ -24,14 +24,7 @@ export class HermesGraph0000 {
       const response = await HermesGraphEvaluate0000(ctx, figure);
       return response;
     } catch (HermesGraph0000Error) {
-      const message = "error";
-      const timestamp = Date.now();
-      return {
-        pass: false,
-        message,
-        timestamp,
-        hash: `${message}`, // @todo hash
-      };
+      return ctx.classes.handler.error(`error`);
     }
   }
 }

@@ -2,6 +2,7 @@ import { LibraryMessagesGraph0000 } from "@hermes-js/library/lib/messages/api/00
 import { Field, ObjectType } from "type-graphql";
 import { GraphObjectsResolve } from "../../objects/resolve/GraphObjectsResolve";
 import { HermesGraphData0000 } from "./hermes-graph-0000-data";
+
 /**
  * * Hermes Documentation
  *

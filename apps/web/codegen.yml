@@ -1,5 +1,5 @@
 overwrite: true
-schema: "http://localhost:8888/"
+schema: "http://localhost:6767/"
 documents: ["documents/**/*.graphql"]
 hooks:
   afterAllFileWrite:

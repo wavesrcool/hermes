@@ -1,3 +1,5 @@
+import { ApolloProvider } from "@apollo/client";
+import { useGraph } from "@hermes-web-hooks/use-graph";
 import { useTheme } from "@hermes-web-hooks/use-theme";
 import shape from "@hermes-web-shapes/store";
 import "@hermes-web-styles/App.css";
@@ -18,6 +20,8 @@ import { themeChange } from "theme-change";
  *
  */
 const App = ({ Component, pageProps }: AppProps) => {
+  const { graph } = useGraph(pageProps);
+
   React.useEffect(() => {
     themeChange(false);
   }, []);
@@ -26,7 +30,9 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <ShapesProvider store={shape}>
-      <Component {...pageProps} />
+      <ApolloProvider client={graph}>
+        <Component {...pageProps} />
+      </ApolloProvider>
     </ShapesProvider>
   );
 };

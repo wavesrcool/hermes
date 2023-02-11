@@ -10,7 +10,7 @@ const {
 } = configuration;
 
 const Page500: NextPage = () => {
-  return <h1>{"500 - hermes.art"}</h1>;
+  return <h1>{"500 - hermes.earth"}</h1>;
 };
 
 export default Page500;

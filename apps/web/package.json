@@ -3,7 +3,7 @@
   "bugs": "https://github.com/wavesrcool/hermes/issues",
   "homepage": "https://github.com/wavesrcool/hermes/tree/main/apps/web#readme",
   "contributors": [],
-  "description": "https://hermes.art",
+  "description": "https://hermes.earth",
   "engines": {
     "node": ">=14.0.0"
   },
@@ -33,21 +33,27 @@
     "build-dev": "yarn lint && yarn lint:next",
     "start": "next start",
     "lint:next": "next lint",
-    "lint": "eslint './src/**/*.{ts,tsx}' --max-warnings=1 --fix"
+    "lint": "eslint './src/**/*.{ts,tsx}' --max-warnings=1 --fix",
+    "gen": "yarn graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.1",
+    "@apollo/link-error": "^2.0.0-beta.3",
     "@reduxjs/toolkit": "^1.9.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "0.5.8",
     "@wavesrcool/library": "^0.1.8",
+    "apollo-upload-client": "^17.0.0",
     "autoprefixer": "^10.4.13",
     "axios": "^1.1.3",
     "color": "^4.2.3",
     "daisyui": "^2.45.0",
+    "deepmerge": "^4.2.2",
     "hsl-to-hex": "^1.0.0",
     "i18next": "^22.0.4",
+    "isomorphic-unfetch": "^3.1.0",
     "lodash": "^4.17.21",
     "nanoid": "^4.0.0",
     "next": "13.0.2",
@@ -67,7 +73,12 @@
     "use-elapsed-time": "^3.0.4"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.13.11",
+    "@graphql-codegen/typescript": "^2.8.1",
+    "@graphql-codegen/typescript-operations": "^2.5.6",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.6",
     "@hermes-js/dev": "^0.0.0",
+    "@types/apollo-upload-client": "^17.0.2",
     "@types/node": "18.11.9",
     "@types/react": "^18.0.10",
     "@types/react-alert": "^5.2.1",

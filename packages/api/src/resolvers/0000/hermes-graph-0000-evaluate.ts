@@ -16,7 +16,10 @@ export const HermesGraphEvaluate0000 = async (
   ctx: TypesGraphHttpApollo,
   figure: HermesGraphFigures0000
 ): Promise<HermesGraphResolve0000> => {
-  let message: LibraryMessagesGraph0000 = `complete`;
+  const {
+    classes: { handler },
+  } = ctx;
+  let message: LibraryMessagesGraph0000 = `error`;
 
   try {
     //
@@ -35,7 +38,7 @@ export const HermesGraphEvaluate0000 = async (
     };
 
     const timestamp = Date.now();
-
+    message = `complete`;
     return {
       pass: true,
       message,
@@ -44,15 +47,6 @@ export const HermesGraphEvaluate0000 = async (
       data,
     };
   } catch (HermesGraphEvaluate0000Error) {
-    message = "error";
-
-    const timestamp = Date.now();
-
-    return {
-      pass: false,
-      message,
-      timestamp,
-      hash: `${message}`, // @todo hash
-    };
+    return handler.error<LibraryMessagesGraph0000>(message);
   }
 };

@@ -10,6 +10,12 @@ if (!ENC_IV) {
   throw new Error(msg);
 }
 
+const GRAPH_URI = process.env.GRAPH_URI;
+if (!GRAPH_URI) {
+  msg = `process.env.GRAPH_URI`;
+  throw new Error(msg);
+}
+
 /**
  * * Hermes Documentation
  *
@@ -20,4 +26,5 @@ if (!ENC_IV) {
  */
 export const envwebs: TypesEnvHermes = {
   ENC_IV,
+  GRAPH_URI,
 };

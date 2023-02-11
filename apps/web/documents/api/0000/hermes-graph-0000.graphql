@@ -1,0 +1,11 @@
+query HermesGraph0000($figure: HermesGraphFigures0000!) {
+  HermesGraph0000(figure: $figure) {
+    pass
+    message
+    timestamp
+    hash
+    data {
+      notes
+    }
+  }
+}

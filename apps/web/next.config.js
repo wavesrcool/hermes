@@ -32,6 +32,7 @@ const config = {
 
   env: {
     ENC_IV: process.env.ENC_IV,
+    GRAPH_URI: process.env.GRAPH_URI,
   },
   images: {
     remotePatterns: [],

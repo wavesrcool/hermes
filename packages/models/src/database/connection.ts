@@ -4,7 +4,7 @@ import { SeederOptions } from "typeorm-extension";
 import { Msg } from "../msg/Msg";
 import { Thread } from "../thread/Thread";
 import { envmodels } from "../_env";
-import { Models1676133243226 } from "./migrations/1676133243226-Models";
+import { Models1676144817400 } from "./migrations/1676144817400-Models";
 
 const { PROD, ENV } = env;
 const { MODELS_DB } = envmodels;
@@ -29,7 +29,7 @@ const options: DataSourceOptions & SeederOptions = {
   subscribers: [],
   migrationsTableName: "history",
   migrationsRun: true,
-  migrations: [Models1676133243226],
+  migrations: [Models1676144817400],
   seeds: [],
 };
 

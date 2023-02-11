@@ -10,7 +10,7 @@ const {
 } = configuration;
 
 const Page404: NextPage = () => {
-  return <h1>{"404 - hermes.art"}</h1>;
+  return <h1>{"404 - hermes.earth"}</h1>;
 };
 
 export default Page404;

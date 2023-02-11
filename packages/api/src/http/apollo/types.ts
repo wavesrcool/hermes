@@ -1,5 +1,7 @@
+import connection from "@hermes-js/models";
 import { ExpressContext } from "apollo-server-express";
 import Redis from "ioredis";
+import { classesapi } from "../../classes";
 
 /**
  * * Hermes Documentation
@@ -11,4 +13,6 @@ import Redis from "ioredis";
  */
 export type TypesGraphHttpApollo = ExpressContext & {
   redis: Redis;
+  conn: typeof connection;
+  classes: typeof classesapi;
 };

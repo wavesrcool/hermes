@@ -28,7 +28,7 @@ class AppDocument extends Document {
     return (
       <Html>
         <Head>
-          <link href={"https://hermes.art/"} rel={"canonical"} />
+          <link href={"https://hermes.earth/"} rel={"canonical"} />
           <meta property={"title"} content={"Hermes"} />
           <meta name={"description"} content={DESCRIPTION} />
           <meta property={"author"} content={"Hermes"} />

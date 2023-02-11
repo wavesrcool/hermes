@@ -37,7 +37,7 @@ export const HermesApiHttp = async (
     await redis.flushall();
   }
 
-  const apollo = await HermesApiHttpApollo(redis);
+  const apollo = await HermesApiHttpApollo(redis, conn);
 
   if (!apollo) {
     throw new Error(`${logname} Error. No graph instance.`);

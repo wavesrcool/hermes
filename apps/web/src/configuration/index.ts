@@ -10,6 +10,9 @@ import { TypesConfiguration } from "./types";
  *
  */
 export const configuration: TypesConfiguration = {
+  GRAPH: {
+    STATE_NAME: "_hermes_graph_",
+  },
   I18N: {
     CONFIG: I18nConfig,
     DICTIONARY: {
@@ -17,6 +20,6 @@ export const configuration: TypesConfiguration = {
     },
   },
   SOURCES: {
-    MEDIA: "https://media.hermes.art/",
+    MEDIA: "https://media.hermes.earth/",
   },
 };

@@ -8,4 +8,6 @@ import { LibraryMessagesGraphBasis } from "../_basis";
  * @notes [ ]
  *
  */
-export type LibraryMessagesGraph0000 = LibraryMessagesGraphBasis;
+export type LibraryMessagesGraph0001 =
+  | `threads-list`
+  | LibraryMessagesGraphBasis;
