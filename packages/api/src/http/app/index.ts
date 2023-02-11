@@ -1,11 +1,13 @@
 import { env } from "@hermes-js/env";
+import connection from "@hermes-js/models";
 import connectRedis from "connect-redis";
 import cors from "cors";
 import express, { Router } from "express";
 import session from "express-session";
 import helmet from "helmet";
 import Redis from "ioredis";
-import { envgraph } from "../../_env";
+import { controllers } from "../../controllers";
+import { envapi } from "../../_env";
 
 const { PROD } = env;
 const {
@@ -13,7 +15,7 @@ const {
   GRAPH_REDIS_PORT,
   GRAPH_COOKIE_NAME,
   GRAPH_COOKIE_IV,
-} = envgraph;
+} = envapi;
 
 /**
  * * Hermes Documentation
@@ -23,10 +25,13 @@ const {
  * @notes [ ]
  *
  */
-export const HermesApiHttpApp = (): [express.Express, Redis] => {
+export const HermesApiHttpApp = (
+  conn: typeof connection
+): [express.Express, Redis] => {
   const app = express();
   app.use(helmet());
   app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
   if (PROD) {
     app.set("trust proxy", true);
@@ -74,6 +79,9 @@ export const HermesApiHttpApp = (): [express.Express, Redis] => {
     res.status(200).send();
   });
 
+  router.post(`/mail-recv`, (req, res) =>
+    controllers.mail_recv(req, res, conn)
+  );
   app.use(router);
 
   return [app, redis];

@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { ClassHermesApi } from "./class";
+import { HermesApi } from "./class";
 
 /**
  * * Hermes Documentation
@@ -9,5 +9,4 @@ import { ClassHermesApi } from "./class";
  * @notes [ ]
  *
  */
-const HermesApi = ClassHermesApi;
 export default HermesApi;

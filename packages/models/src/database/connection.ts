@@ -1,9 +1,10 @@
 import { env } from "@hermes-js/env";
 import { DataSource, DataSourceOptions } from "typeorm";
 import { SeederOptions } from "typeorm-extension";
-import { Post } from "../post/Post";
-import { Topic } from "../topic/Topic";
+import { Msg } from "../msg/Msg";
+import { Thread } from "../thread/Thread";
 import { envmodels } from "../_env";
+import { Models1676133243226 } from "./migrations/1676133243226-Models";
 
 const { PROD, ENV } = env;
 const { MODELS_DB } = envmodels;
@@ -24,11 +25,11 @@ const options: DataSourceOptions & SeederOptions = {
   synchronize: false,
   logging: !PROD,
   dropSchema: false,
-  entities: [Post, Topic],
+  entities: [Msg, Thread],
   subscribers: [],
   migrationsTableName: "history",
   migrationsRun: true,
-  migrations: [],
+  migrations: [Models1676133243226],
   seeds: [],
 };
 

@@ -5,10 +5,11 @@ import {
   CreateDateColumn,
   Entity,
   Generated,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { ModelsRecords } from "../_records/ModelsRecords";
+import { Msg } from "../msg/Msg";
 
 /**
  * * Hermes Documentation
@@ -20,7 +21,7 @@ import { ModelsRecords } from "../_records/ModelsRecords";
  */
 @ObjectType()
 @Entity()
-export class Topic extends BaseEntity {
+export class Thread extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id!: number;
@@ -43,21 +44,21 @@ export class Topic extends BaseEntity {
   // model fields
   //
 
-  @Field(() => String, { nullable: true })
-  @Column({ type: `varchar`, nullable: true, default: null })
-  title!: string | null;
+  @Field(() => String)
+  @Column({ type: `varchar` })
+  subject!: string;
 
   //
   //
   // model records
   //
 
-  @Field(() => ModelsRecords, { nullable: true })
-  @Column({ type: "json", nullable: true, default: null })
-  records!: ModelsRecords | null;
-
   //
   //
   // model relations
   //
+
+  @Field(() => [Msg])
+  @OneToMany(() => Msg, (msg) => msg.thread)
+  msgs!: Msg[];
 }

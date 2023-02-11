@@ -7,9 +7,10 @@
  * @notes [ ]
  *
  */
-export const LibraryAttestStrings = (a: any): string | undefined => {
+export const LibraryAttestStrings = (a: any): string => {
   if (!!a && typeof a === "string") {
     return String(a);
   }
-  return undefined;
+  const msg = `[hermes] Library. Attest string failed: ${String(a)}`;
+  throw new Error(msg);
 };

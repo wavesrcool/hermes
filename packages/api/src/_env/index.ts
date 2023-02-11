@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv-safe";
 import path from "path";
-import { EnvGraphType } from "./types";
+import { EnvApiType } from "./types";
 
 dotenv.config({
   allowEmptyValues: false,
@@ -57,6 +57,24 @@ if (!GRAPH_REDIS_PORT) {
   throw new Error(msg);
 }
 
+const { GRAPH_MAIL_BASE } = process.env;
+if (!GRAPH_MAIL_BASE) {
+  msg = `process.env.GRAPH_MAIL_BASE`;
+  throw new Error(msg);
+}
+
+const { GRAPH_MAIL_KEY } = process.env;
+if (!GRAPH_MAIL_KEY) {
+  msg = `process.env.GRAPH_MAIL_KEY`;
+  throw new Error(msg);
+}
+
+const { GRAPH_MAIL_SIGN } = process.env;
+if (!GRAPH_MAIL_SIGN) {
+  msg = `process.env.GRAPH_MAIL_SIGN`;
+  throw new Error(msg);
+}
+
 /**
  * * Hermes Documentation
  *
@@ -65,7 +83,7 @@ if (!GRAPH_REDIS_PORT) {
  * @notes [ ]
  *
  */
-export const envgraph: EnvGraphType = {
+export const envapi: EnvApiType = {
   GRAPH_PORT,
   GRAPH_CORS_ORIGIN,
   GRAPH_REDIS_PORT,
@@ -74,4 +92,7 @@ export const envgraph: EnvGraphType = {
   GRAPH_ENC_IV,
   GRAPH_COOKIE_NAME,
   GRAPH_COOKIE_IV,
+  GRAPH_MAIL_BASE,
+  GRAPH_MAIL_KEY,
+  GRAPH_MAIL_SIGN,
 };

@@ -43,7 +43,11 @@
     "build-dev": "yarn lint && yarn c",
     "prepack": "yarn build",
     "test": "yarn jest",
-    "update": "rm -rf node_modules && yarn"
+    "update": "rm -rf node_modules && yarn",
+    "db:connection": "yarn typeorm-ts-node-commonjs -d ./src/database/connection.ts",
+    "db:drop": "yarn db:connection schema:drop",
+    "db:migr:gen": "yarn db:connection migration:generate ./src/database/migrations/Models --timestamp",
+    "db:migr:run": "yarn db:connection migration:run"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0"

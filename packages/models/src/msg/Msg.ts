@@ -5,10 +5,12 @@ import {
   CreateDateColumn,
   Entity,
   Generated,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { ModelsRecords } from "../_records/ModelsRecords";
+import { Thread } from "../thread/Thread";
+import { MsgRecords } from "./MsgRecords";
 
 /**
  * * Hermes Documentation
@@ -20,7 +22,7 @@ import { ModelsRecords } from "../_records/ModelsRecords";
  */
 @ObjectType()
 @Entity()
-export class Post extends BaseEntity {
+export class Msg extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id!: number;
@@ -43,16 +45,8 @@ export class Post extends BaseEntity {
   // model fields
   //
 
-  @Field(() => String, { nullable: true })
-  @Column({ type: "varchar", nullable: true })
-  pictureDate!: string | null;
-
   @Field(() => String)
-  @Column({ type: `varchar` })
-  picture!: string;
-
-  @Field(() => String)
-  @Column({ type: `varchar` })
+  @Column({ type: `varchar`, unique: true })
   wave!: string;
 
   //
@@ -60,12 +54,20 @@ export class Post extends BaseEntity {
   // model records
   //
 
-  @Field(() => ModelsRecords, { nullable: true })
+  @Field(() => MsgRecords, { nullable: true })
   @Column({ type: "json", nullable: true, default: null })
-  records!: ModelsRecords | null;
+  records!: MsgRecords | null;
 
   //
   //
   // model relations
   //
+
+  @Field(() => Int, { nullable: true })
+  @Column({ nullable: true })
+  threadId?: number;
+
+  @Field(() => Thread)
+  @ManyToOne(() => Thread, (thread) => thread.msgs)
+  thread!: Thread;
 }

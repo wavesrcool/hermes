@@ -6,7 +6,7 @@ const { PROD } = env;
 
 const logsname = `[hermes graph]:`;
 
-export class ClassHermesApi {
+export class HermesApi {
   private conn: typeof connection;
 
   constructor() {
@@ -24,6 +24,7 @@ export class ClassHermesApi {
       })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .catch((e: any) => {
+        console.log(e, `e`);
         let e0: string | undefined;
         let e1: string | undefined;
 

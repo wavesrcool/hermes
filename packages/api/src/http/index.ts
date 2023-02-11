@@ -2,13 +2,13 @@ import { env } from "@hermes-js/env";
 import connection from "@hermes-js/models";
 import { ApolloServer } from "apollo-server-express";
 import { configgraph } from "../config";
-import { envgraph } from "../_env";
+import { envapi } from "../_env";
 import { HermesApiHttpApollo } from "./apollo";
 import { HermesApiHttpApp } from "./app";
 
 const { PROD } = env;
 
-const { GRAPH_PORT } = envgraph;
+const { GRAPH_PORT } = envapi;
 
 const {
   SERVER: { GRAPH_PATH },
@@ -31,7 +31,7 @@ export const HermesApiHttp = async (
     .initialize()
     .then(() => console.log(`${logname} Database connection established.`));
 
-  const { 0: app, 1: redis } = HermesApiHttpApp();
+  const { 0: app, 1: redis } = HermesApiHttpApp(conn);
 
   if (PROD) {
     await redis.flushall();
