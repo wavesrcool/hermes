@@ -1,0 +1,61 @@
+{
+  "author": "Tyson Lupul <tyson@lupul.dev>",
+  "bugs": "https://github.com/wavesrcool/hermes/issues",
+  "homepage": "https://github.com/wavesrcool/hermes/tree/main/packages/models#readme",
+  "contributors": [],
+  "description": "",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "license": "UNLICENSED",
+  "name": "@hermes-js/models",
+  "repository": {
+    "directory": "packages/models",
+    "type": "git",
+    "url": "ssh://github.com/wavesrcool/hermes.git"
+  },
+  "type": "commonjs",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "./lib",
+    ".env.models"
+  ],
+  "keywords": [
+    "hermes",
+    "models",
+    "es6",
+    "node"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "ci-env": "hermes-ci-env-example models",
+    "ci": "yarn ci-env && yarn lint",
+    "w": "tsc -w",
+    "0l": "rm -rf lib",
+    "0t": "rm -f tsconfig*tsbuildinfo",
+    "c": "yarn 0l && yarn 0t && tsc --project tsconfig.build.json",
+    "lint": "eslint './src/**/*.{ts,tsx}' --max-warnings=1 --fix",
+    "build": "yarn ci && yarn c",
+    "build-dev": "yarn lint && yarn c",
+    "prepack": "yarn build",
+    "test": "yarn jest",
+    "update": "rm -rf node_modules && yarn"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
+  },
+  "dependencies": {
+    "@hermes-js/dev": "^0.0.0",
+    "@hermes-js/env": "^0.0.0",
+    "class-validator": "0.13.2",
+    "dotenv-safe": "^8.2.0",
+    "reflect-metadata": "0.1.13",
+    "type-graphql": "1.1.1",
+    "typeorm": "0.3.10",
+    "typeorm-extension": "^2.3.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "extends": "@tsconfig/node16",
+  "compilerOptions": {
+    "declaration": true,
+    "composite": true,
+    "target": "ESNext",
+    "jsx": "preserve",
+    "lib": ["DOM", "ESNext"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@hermes-js/api": ["api/src"],
+      "@hermes-js/api/*": ["api/src/*"],
+      "@hermes-js/dev": ["dev/src"],
+      "@hermes-js/dev/*": ["dev/src/*"],
+      "@hermes-js/env": ["env/src"],
+      "@hermes-js/env/*": ["env/src/*"],
+      "@hermes-js/library": ["library/src"],
+      "@hermes-js/library/*": ["library/src/*"],
+      "@hermes-js/models": ["models/src"],
+      "@hermes-js/models/*": ["models/src/*"],
+    },
+  }
+}

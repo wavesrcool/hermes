@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "./src",
+    "module": "esnext",
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "allowUnusedLabels": true,
+    "allowUnreachableCode": true,
+    "allowJs": true,
+    "paths": {
+      "@hermes-web-classes/*": ["class/*"],
+      "@hermes-web-configuration/*": ["configuration/*"],
+      "@hermes-web-components/*": ["components/*"],
+      "@hermes-web-features/*": ["features/*"],
+      "@hermes-web-hooks/*": ["hooks/*"],
+      "@hermes-web-library/*": ["library/*"],
+      "@hermes-web-shapes/*": ["shapes/*"],
+      "@hermes-web-styles/*": ["styles/*"],
+      "@hermes-web-types/*": ["types/*"],
+      "@hermes-web-utils/*": ["utils/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "__local__", "__edit__"]
+}

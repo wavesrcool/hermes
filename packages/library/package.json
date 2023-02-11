@@ -1,0 +1,51 @@
+{
+  "author": "Tyson Lupul <tyson@lupul.dev>",
+  "bugs": "https://github.com/wavesrcool/hermes/issues",
+  "homepage": "https://github.com/wavesrcool/hermes/tree/main/packages/library#readme",
+  "contributors": [],
+  "description": "",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "license": "UNLICENSED",
+  "name": "@hermes-js/library",
+  "repository": {
+    "directory": "packages/library",
+    "type": "git",
+    "url": "ssh://github.com/wavesrcool/hermes.git"
+  },
+  "type": "commonjs",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "./lib"
+  ],
+  "keywords": [
+    "hermes",
+    "library",
+    "es6",
+    "node"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "ci": "yarn lint",
+    "w": "tsc -w",
+    "0l": "rm -rf lib",
+    "0t": "rm -f tsconfig*tsbuildinfo",
+    "c": "yarn 0l && yarn 0t && tsc --project tsconfig.build.json",
+    "lint": "eslint './src/**/*.{ts,tsx}' --max-warnings=1 --fix",
+    "build": "yarn ci && yarn c",
+    "build-dev": "yarn lint && yarn c",
+    "prepack": "yarn build",
+    "test": "yarn jest",
+    "update": "rm -rf node_modules && yarn"
+  },
+  "dependencies": {
+    "@hermes-js/dev": "^0.0.0",
+    "@hermes-js/env": "^0.0.0",
+    "axios": "^1.2.2"
+  }
+}
