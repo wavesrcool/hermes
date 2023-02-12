@@ -6,7 +6,7 @@ A Node.js client-server architecture for sending & fetching email.
 
 The repo is split up into a number of packages -
 
-- [hermes-web](apps/webs/) A web client
+- [hermes-web](apps/web/) A web client
 - [hermes-native](apps/native/) A cross platform (iOS/Android) app
 - [@hermes-js/api](packages/api/) An http server with a GraphQL endpoint and REST webhooks
 - [@hermes-js/dev](packages/dev/) A collection of cli tools and build scripts used across repo packages
