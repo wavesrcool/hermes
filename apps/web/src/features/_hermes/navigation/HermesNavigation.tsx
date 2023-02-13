@@ -1,6 +1,9 @@
 import { TypesHermesBasis } from "@hermes-web-types/basis/TypesHermesBasis";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import * as React from "react";
+
+export type TypesHermesNavigationRoutes = "send" | "drafts" | "read";
 
 export type TypesHermesNavigation = {
   basis: TypesHermesBasis;
@@ -19,6 +22,100 @@ export const HermesNavigation: React.FC<TypesHermesNavigation> = ({
 }: TypesHermesNavigation) => {
   const { t } = useTranslation(basis.dictionary);
 
+  const router = useRouter();
+
+  const lcaHermesNavigationRoutes = React.useCallback(
+    async (route: TypesHermesNavigationRoutes | "") => {
+      //
+      // @notes:
+
+      //
+      // conditions
+
+      // error false
+      // fold()
+
+      // loading start
+      // fold()
+
+      //
+      // run
+      const run = async () => {
+        try {
+          //
+          // start
+
+          await router.push(`/${route}`);
+
+          //
+          // end
+        } catch (e) {
+          //
+          // catch
+        } finally {
+          //
+          // loading stop
+          // fold()
+          //
+          // end
+        }
+      };
+      run();
+
+      //
+      // end
+      return;
+    },
+    [router]
+  );
+
+  const lcaHermesNavigationRefresh = React.useCallback(async () => {
+    //
+    // @notes:
+
+    //
+    // conditions
+
+    // error false
+    // fold()
+
+    // loading start
+    // fold()
+
+    //
+    // run
+    const run = async () => {
+      try {
+        //
+        // start
+
+        console.log(`run`);
+        const currentroute = router.asPath;
+        console.log(`@todo... refresh ${currentroute}`);
+        // eslint-disable-next-line no-promise-executor-return
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        console.log(`complete`);
+
+        //
+        // end
+      } catch (e) {
+        //
+        // catch
+      } finally {
+        //
+        // loading stop
+        // fold()
+        //
+        // end
+      }
+    };
+    run();
+
+    //
+    // end
+    return;
+  }, [router.asPath]);
+
   return (
     <div className={`flex flex-col w-full`}>
       <div
@@ -29,11 +126,13 @@ export const HermesNavigation: React.FC<TypesHermesNavigation> = ({
         >
           <div
             className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
+            onClick={() => lcaHermesNavigationRoutes("")}
           >
             <p className={"font-sans font-semibold text-md"}>{"Hermes"}</p>
           </div>
           <div
             className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
+            onClick={lcaHermesNavigationRefresh}
           >
             <p className={"font-sans font-medium text-md"}>
               {`${t(`glossary:`, `Refresh`)}`}
@@ -41,6 +140,15 @@ export const HermesNavigation: React.FC<TypesHermesNavigation> = ({
           </div>
           <div
             className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
+            onClick={() => lcaHermesNavigationRoutes("send")}
+          >
+            <p className={"font-sans font-medium text-md"}>
+              {`${t(`glossary:`, `Send`)}`}
+            </p>
+          </div>
+          <div
+            className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
+            onClick={() => lcaHermesNavigationRoutes("read")}
           >
             <p className={"font-sans font-medium text-md"}>
               {`${t(`glossary:`, `Read`)}`}
@@ -48,13 +156,7 @@ export const HermesNavigation: React.FC<TypesHermesNavigation> = ({
           </div>
           <div
             className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
-          >
-            <p className={"font-sans font-medium text-md"}>
-              {`${t(`glossary:`, `Sent`)}`}
-            </p>
-          </div>
-          <div
-            className={`col-span-1 flex w-full h-full justify-center items-center cursor-pointer hover:bg-neutral hover:text-white`}
+            onClick={() => lcaHermesNavigationRoutes("drafts")}
           >
             <p className={"font-sans font-medium text-md"}>
               {`${t(`glossary:`, `Drafts`)}`}
